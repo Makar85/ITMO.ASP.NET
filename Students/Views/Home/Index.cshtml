@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "Список студентов";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <h3>Список студентов</h3>
+        <table class="table table-bordered table-hover">
+            <tr>
+                <td>
+                    <p>Имя</p>
+                </td>
+                <td>
+                    <p>Фамилия</p>
+                </td>
+                <td>
+                    <p>Предмет</p>
+                </td>
+                <td>
+                    <p>Оценка</p>
+                </td>
+            </tr>
+            @foreach (var c in ViewBag.Students)
+            {
+                <tr>
+                    <td>
+                        <p>@c.Name</p>
+                    </td>
+                    <td>
+                        <p>@c.Surname</p>
+                    </td>
+                    <td>
+                        <p>@c.Subject</p>
+                    </td>
+                    <td><p>@c.Score</p></td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+<div>
+    <h5>Сумма балов студентов</h5>
+</div>
+<div class="row">
+<div class="btn">
+    @using (Ajax.BeginForm("ScoreSum", new AjaxOptions { UpdateTargetId = "results" }))
+    {
+        <input type="submit" value="Посмотреть сумму балов" />
+    }
+    <div id="results"> </div>
+</div>
+<div class="btn">
+    @using (Ajax.BeginForm("ShowBest", new AjaxOptions { UpdateTargetId = "results" }))
+    {
+        <input type="submit" value="Показать 5 лучших студентов" />
+    }
+    <div id="results"> </div>
+</div>
+<div class="btn">
+    @using (Ajax.BeginForm("ShowWorst", new AjaxOptions { UpdateTargetId = "results" }))
+    {
+        <input type="submit" value="Показать 5 лучших студентов" />
+    }
+    <div id="results"> </div>
+</div>
+</div>
+

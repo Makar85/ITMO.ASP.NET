@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Students.Models.Student>
+<div id="results">
+    <h4> Пять лучших студентов</h4>
+    <table class="table-bordered">
+        <tr>
+            <td>
+                <p>Имя</p>
+            </td>
+            <td>
+                <p>Фамилия</p>
+            </td>
+            <td>
+                <p>Предмет</p>
+            </td>
+            <td>
+                <p>Оценка</p>
+            </td>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <p>@item.Name</p>
+                </td>
+                <td>
+                    <p>@item.Surname</p>
+                </td>
+                <td>
+                    <p>@item.Subject</p>
+                </td>
+                <td><p>@item.Score</p></td>
+            </tr>
+        }
+    </table>
+</div>
+
+
